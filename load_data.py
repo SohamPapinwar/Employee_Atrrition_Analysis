@@ -4,8 +4,8 @@ import numpy as np
 
 # Replace with your actual MySQL credentials
 user = 'root'
-password = '445204'
-host = '127.0.0.2'
+password = '*******'
+host = "*********'
 database = 'employee_attrition_analysis'
 
 # Define the database connection string
