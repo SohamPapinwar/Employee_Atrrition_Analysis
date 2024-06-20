@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Attrition Analysis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Light gray background */
+            color: #333333; /* Dark gray text */
+        }
+        .navbar-custom {
+            background-color: #343a40; /* Dark background for navbar */
+        }
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: #ffffff; /* White text for navbar links */
+        }
+        .navbar-custom .nav-link:hover {
+            color: #d4d4d4; /* Light gray on hover */
+        }
+        .btn-custom {
+            color: #ffffff; /* White text for buttons */
+            background-color: #007bff; /* Blue background */
+            border-color: #007bff; /* Blue border */
+        }
+        .btn-custom:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            border-color: #004085; /* Darker blue border on hover */
+        }
+        .container {
+            margin-top: 20px;
+            background-color: #ffffff; /* White background for main content */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Light shadow for depth */
+        }
+        .container1 {
+            margin-top: 20px;
+        }
+        .footer {
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 20px 0;
+        }
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .review-form {
+            margin-top: 20px;
+            background-color: #ffffff; /* White background for review form */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Light shadow for depth */
+        }
+        .review-form h3 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <a class="navbar-brand" href="#">Employee Attrition Analysis</a>
+    <div class="ml-auto">
+        <button class="btn btn-custom" onclick="location.href='{{ url_for('employee') }}'">View Employee Details</button>
+    </div>
+</nav>
+<div class="container">
+    <h1 class="mt-5">Employee Attrition Analysis</h1>
+    <h2>Exploratory Data Analysis</h2>
+    <img src="data:image/png;base64,{{ eda_plot }}" alt="EDA Plot" class="img-fluid">
+    <h2>Correlation Heatmap</h2>
+    <img src="data:image/png;base64,{{ correlation_plot }}" alt="Correlation Heatmap" class="img-fluid">
+    <h2>Attrition by Department</h2>
+    <img src="data:image/png;base64,{{ department_plot }}" alt="Attrition by Department" class="img-fluid">
+    <h2>Attrition by Job Role</h2>
+    <img src="data:image/png;base64,{{ jobrole_plot }}" alt="Attrition by Job Role" class="img-fluid">
+    <h2>Monthly Income Distribution</h2>
+    <img src="data:image/png;base64,{{ income_plot }}" alt="Monthly Income Distribution" class="img-fluid">
+    <h2>Age Distribution</h2>
+    <img src="data:image/png;base64,{{ age_plot }}" alt="Age Distribution" class="img-fluid">
+</div>
+
+<div class="review-form container">
+    <form action="/submit-feedback" method="post">
+        <h3>Leave a Review or Feedback</h3>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="3" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<footer class="footer">
+    <div class="container1">
+        <p class="mb-3">My contact details:</p>
+        <p class="mb-0">
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank">LinkedIn</a> |
+            <a href="mailto:your.email@gmail.com">Email</a> |
+            Phone: +1 234 567 8901
+        </p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

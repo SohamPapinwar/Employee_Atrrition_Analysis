@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Light gray background */
+            color: #333333; /* Dark gray text */
+        }
+        .navbar-custom {
+            background-color: #343a40; /* Dark background for navbar */
+        }
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: #ffffff; /* White text for navbar links */
+        }
+        .navbar-custom .nav-link:hover {
+            color: #d4d4d4; /* Light gray on hover */
+        }
+        .btn-custom {
+            color: #ffffff; /* White text for buttons */
+            background-color: #007bff; /* Blue background */
+            border-color: #007bff; /* Blue border */
+        }
+        .btn-custom:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            border-color: #004085; /* Darker blue border on hover */
+        }
+        .container1 {
+            margin-top: 20px;
+        }
+        .footer {
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 20px 0;
+        }
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#">Employee Attrition Analysis</a>
+        <div class="ml-auto">
+            <button class="btn btn-custom" onclick="location.href='{{ url_for('index') }}'">Home Page</button>
+        </div>
+    </nav>
+<div class="container">
+    <h1 class="mt-5">Employee Details</h1>
+    <form method="post" action="{{ url_for('employee') }}">
+        <div class="form-group">
+            <label for="employee_id">Employee ID:</label>
+            <input type="text" class="form-control" id="employee_id" name="employee_id" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    {% if employee %}
+        <h2 class="mt-5">Details for Employee ID: {{ employee.id }}</h2>
+        <table class="table table-bordered">
+            {% for key, value in employee.items() %}
+                <tr>
+                    <th>{{ key }}</th>
+                    <td>{{ value }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% elif error %}
+        <div class="alert alert-danger mt-5">{{ error }}</div>
+    {% endif %}
+</div>
+<footer class="footer">
+    <div class="container1">
+        <p class="mb-3">My contact details:</p>
+        <p class="mb-0">
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank">LinkedIn</a> |
+            <a href="mailto:your.email@gmail.com">Email</a> |
+            Phone: +1 234 567 8901
+        </p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
