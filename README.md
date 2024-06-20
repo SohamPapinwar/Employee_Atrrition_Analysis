@@ -15,7 +15,6 @@ employee-attrition-analysis/
 │
 ├── scripts/
 │ ├── load_data.py
-│ └── preprocess_data.py
 │
 ├── app/
 │ ├── init.py
@@ -24,12 +23,9 @@ employee-attrition-analysis/
 │ └── templates/
 │ └── index.html
 │
-├── static/
-│ ├── css/
-│ └── js/
-│
 ├── requirements.txt
 └── README.md
+|__ run.py
 
 ## Setup and Installation
 
@@ -43,6 +39,6 @@ employee-attrition-analysis/
    - `pip install -r requirements.txt`
 
 4. Run the Flask web application:
-   - `python app.py`
+   - `python run.py`
 
 5. Open your browser and navigate to `http://127.0.0.1:5000/`
