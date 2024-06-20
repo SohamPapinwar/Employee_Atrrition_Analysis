@@ -13,8 +13,8 @@ import base64
 
 # Database configuration
 user = 'root'
-password = '445204'
-host = '127.0.0.1'
+password = '*****'
+host = '*******'
 database = 'employee_attrition_analysis'
 engine = create_engine(f'mysql+mysqlconnector://{user}:{password}@{host}/{database}')
 
